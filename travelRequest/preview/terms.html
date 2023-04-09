@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and condition</title>
+    <link rel="stylesheet" href="terms.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container2">
+      <button type="submit" class="btn" onclick="openPopup()">submit</button>
+      <div class="popup2" id="popup2">
+        <h2 style="font-weight: bold">Travel Policy & Disclaimers</h2>
+        <div class="inner-div"></div>
+        <div class="point"></div>
+        <input id="checkbox" type="checkbox" />
+        <p style="margin-left: 70px">
+          I have read and agree to the primary policy,terms of services.
+        </p>
+
+        <button
+          type="button"
+          onclick="closePopup()"
+          style="
+            margin-top: 8px;
+            width: 100px;
+            height: 50px;
+            left: 50px;
+            top: 50px;
+            background-color: #ffd300;
+            color: black;
+          "
+        >
+          Submit
+          <i class="fa fa-check" style="left: 10px"></i>
+        </button>
+      </div>
+    </div>
+    <script>
+      let popup = document.getElementById("popup2");
+
+      function openPopup() {
+        popup.classList.add("open-popup2");
+      }
+      function closePopup() {
+        popup.classList.remove("open-popup2");
+      }
+    </script>
+  </body>
+</html>

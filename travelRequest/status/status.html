@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="status.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Mode</title>
+    <style>
+      #table {
+        display: inline-block;
+        background-color: gray;
+        float: none;
+      }
+
+      /* .horizontal-scrollable>.row>.col-xs-4 {
+  display: inline-block;
+  float: none;
+} */
+
+      #thead {
+        color: #ffd300;
+        background-color: #414141;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height: 45px;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding-left: 1%;
+        padding-right: 1%;
+        line-height: center;
+      }
+
+      #action i {
+        border: 5px solid #ffd300;
+        border-radius: 50%;
+        background-color: #ffd300;
+      }
+
+      .type,
+      .time,
+      .atime {
+        font-size: small;
+        color: rgb(73, 73, 73);
+      }
+
+      #trip_no,
+      #from,
+      #to {
+        display: inline-block;
+        text-align: center;
+      }
+
+      #tbody {
+        color: black;
+        background-color: white;
+        /* border: 2px solid white; */
+        margin-top: 13px;
+        /* margin-bottom: 15px; */
+        height: 50px;
+        margin-left: 2%;
+        margin-right: 1%;
+        padding-left: 1%;
+        padding-right: 1%;
+        line-height: center;
+      }
+
+      /* #itable {
+  height: 29em;
+} */
+
+      #thead,
+      #tbody {
+        max-width: 73em;
+        min-width: 50em;
+      }
+
+      #table .col,
+      .col-2,
+      .col-3 {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* .pagination,
+.jsgrid .jsgrid-pager {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem
+}
+
+.page-link {
+  color: black
+}
+
+.pagination.pagination-rounded-flat .page-item {
+  margin: 0 .25rem
+}
+
+.pagination .page-item.active .page-link,
+a {
+  background: #FFD300;
+  border-color: #141414
+}
+
+.pagination.pagination-rounded-flat .page-item .page-link,
+a {
+  border: none;
+  border-radius: 50px;
+} */
+
+      /*.container {
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+}*/
+      #details {
+        display: flex;
+      }
+
+
+      .travelling {
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 100px;
+        font-weight: bold;
+        color: #fff;
+      }
+      .details {
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      .aswin {
+        width: 250px;
+        height: 520px;
+        background-color: gray;
+        border-radius: 30px;
+      }
+
+      
+
+      .review-1 {
+        position: relative;
+        width: 950px;
+        height: 200px;
+        margin-inline: auto;
+        background: #d9d9d9;
+        border-radius: 30px;
+      }
+
+      .review-2 {
+        position: relative;
+        width: 950px;
+        height: 200px;
+        margin-inline: auto;
+        background: #d9d9d9;
+        border-radius: 30px;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+        right: 20%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr,
+      th {
+        background-color: #ffd300;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      .status {
+        position: relative;
+        width: 250px;
+        height: 1000px;
+        margin-left: 35px;
+        background: #ffd300;
+        border-radius: 30px;
+      }
+
+      .approved {
+        margin-top: 30px;
+        margin-left: 30px;
+      }
+
+      .manager {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 100px;
+
+        color: #ffd300;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:x-large;
+        font-weight: bolder;
+        background: #414141;
+        background-size: 20px;
+        border: 6px solid #414141;
+        border-radius: 50%;
+      }
+
+      .l2-manager {
+        margin-left: 10px;
+      }
+
+      .suriya {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 100px;
+
+        color: black;
+        height: 40px;
+        width: 40px;
+
+        background: #ffd300;
+        background-size: 20px;
+        border: 6px solid #414141;
+        border-radius: 50%;
+      }
+
+      .inner-white-box {
+        position: relative;
+        background-color: white;
+        margin-block: 10px;
+        margin-inline: auto;
+        margin-bottom: 50px;
+        width: 90%;
+        height: 970px;
+        border-radius: 30px;
+      }
+      .hello {
+        position: relative;
+        display: flex;
+
+        justify-content: center;
+        margin-top: 10%;
+        margin-left: 40px;
+        height: max-content;
+        background-color: #414141;
+        transition: var(--transition);
+      }
+      
+      .titleA {
+        position: relative;
+        margin-right: 50px;
+        min-width: 700px;
+        max-width: 1500px;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: max-content;
+        left: 30px;
+        right: 50px;
+        background: #d9d9d9;
+        border-radius: 30px;
+      }
+      .review {
+        position: relative;
+        margin-right: 50px;
+        display: flex;
+        margin-inline: auto;
+        flex-direction: column;
+        width: 85%;
+        height: 30vh;
+        left: 30px;
+        right: 50px;
+        background: #d9d9d9;
+        border-radius: 20px;
+        margin-block: 25px;
+      }
+      .review>p{
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="sidebar">
+      <img class="logo" src="images/image 128.png" />
+      <img class="logo2" src="images/image 128.png" />
+      <div class="nav-header">
+        <i class="bx bx-menu btn-menu" id="menuBtn"></i>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#">
+            <i class="bx bx-taxi"></i>
+            <span class="title">Travel Request</span>
+          </a>
+          <span class="tooltip">Travel Request</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-edit"></i>
+            <span class="title">Travel Reimbursement</span>
+          </a>
+          <span class="tooltip">Travel Reimbursement</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-globe"></i>
+            <span class="title">Broadband </span>
+          </a>
+          <span class="tooltip">Broadband Reimbursement</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-wallet-alt"></i>
+            <span class="title">Onboard</span>
+          </a>
+          <span class="tooltip">Onboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-bell"></i>
+            <span class="title">Notification</span>
+          </a>
+          <span class="tooltip">Notification</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bxs-cog"></i>
+            <span class="title">Settings</span>
+          </a>
+          <span class="tooltip">Settings</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-log-out"></i>
+            <span class="title">Log Out</span>
+          </a>
+          <span class="tooltip">Log Out</span>
+        </li>
+      </ul>
+      <button class="log_out">Log-out</button>
+    </section>
+
+    <div class="header">
+      <img class="ellipse" src="images/Ellipse 356.png" alt="" />
+      <div class="i-text">TRAVEL REQUEST</div>
+      <h1>Purpose of visit & other details</h1>
+    </div>
+
+    <div class="hello">
+      <div class="titleA" id="Main">
+        <h5
+          style="
+            background: rgba(255, 211, 0, 0.54);
+            width: 36%;
+            padding-block: 10px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 27px;
+            text-align: center;
+            right: 10px;
+            font-size: 25px;
+          "
+        >
+          DFT69
+        </h5>
+        <div class="inner-white-box">
+          <div class="input-box">
+            <div style="display: flex;">
+              <div class="details"
+                  style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 18px;margin-left: 10px;">
+                  Trip Type : </div>
+              <div style="margin-top: 22px; margin-left: 70px;">
+                  EA1234
+              </div>
+          </div>
+          <div style="display: flex;">
+            <div style="display:block;">
+                <div style="display: flex;">
+                <div class="details"
+                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;justify-items: center;padding: 5px;margin-top: 20px;margin-left: 10px;"
+                id="details">
+                From City :
+            </div>
+            <div style="margin-top: 23px; margin-left: 70px;">
+              Salem
+          </div>
+          </div>
+          <div style="display: flex;">
+            <div class="details"
+        style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 19px;margin-left: 10px;"
+        id="details">
+        Departure Date : 
+    </div>
+    <div style="margin-top: 20px; margin-left: 20px;">
+      10/02/2033
+  </div>
+      </div>
+      <div style="display: flex;">
+        <div class="details"
+        style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 19px;margin-left: 10px;"
+        id="details">
+        Purpose of visit :
+    </div>
+    <div style="margin-top: 22px; margin-left: 25px;">
+      Medical
+  </div>
+  </div>
+  </div >
+  <div style="display: block;">
+    <div style="display:flex;">
+        <div class="details"
+        style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 30px;"
+        id="details">
+        To City :
+    </div>
+    <div style="margin-top: 18px; margin-left: 68px;">
+      Chennai
+  </div>
+  </div>
+  <div style="display:flex;">
+    <div class="details"
+    style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 30px;"
+    id="details">
+    Return Date:
+  </div>
+  <div style="margin-top: 19px; margin-left: 35px;">
+    20/02/2023
+  </div>
+  </div>
+  <div style="display: flex;">
+    <div class="details"
+    style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 30px;"
+    id="details">
+    Billing Entity :
+  </div>
+  <div style="margin-top: 20px; margin-left: 30px;">
+    MedicalBill
+  </div>
+</div>
+</div>
+</div>
+<div class="details"
+                                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;width:40%;padding: 5px;margin-top: 15px;margin-left: 10px;">Accompany
+                                Employees Id :</div>
+
+                        </div>
+                        <div class="table" style="margin-left: 30px;margin-top: 10px;">
+
+                          <table>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Name</th>
+
+                              </tr>
+                              <tr>
+                                  <td>E3Fd</td>
+                                  <td>XYZ</td>
+
+                              </tr>
+                              <tr>
+                                  <td>FE3E</td>
+                                  <td>ABC</td>
+
+                              </tr>
+                              <tr>
+                                  <td>FEE69</td>
+                                  <td>MNO</td>
+
+                              </tr>
+
+                          </table>
+                          <!--div class="member">
+                                <h6>3</h6>
+                                
+                              </div-->
+                      </div>
+                      <div style="display: flex;">
+                        <div class="details"
+                            style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 10px;"
+                            id="details">
+                            Mode of Transport :
+                        </div>
+                      </div>
+                      <div>
+                        <div style="display: inline-block;">
+                            <div style="display: flex;">
+                                <div class="details"
+                                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 10px;"
+                                id="details">
+                                Passport Number :
+                                </div>
+                                <div style="margin-top: 20px; margin-left: 30px;">
+                                  PW1123E
+                              </div>
+                              </div>
+                              <div style="display: flex;">
+                                <div class="details"
+                                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 10px;"
+                                id="details">
+                                Full Name :
+                            </div>
+                            <div style="margin-top: 20px; margin-left: 30px;margin-left: 90px;">
+                              XXX
+                          </div>
+                          </div>
+                          </div>
+                          <div style="display: inline-block;">
+                            <div style="display: flex;">
+                            
+                                <div class="details"
+                                    style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 30px;"
+                                    id="details">
+                                    Expiry Date :
+                                </div>
+                                <div style="margin-top: 20px; margin-left: 25px;">
+                                  20/10/2003
+                              </div>
+                          </div>
+                          <div style="display: flex;">
+                           
+                            <div class="details"
+                                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;padding: 5px;margin-top: 15px;margin-left: 30px;"
+                                id="details">
+                                Id Proof :
+                            </div>
+                            <div style="margin-top: 20px; margin-left: 50px;">
+                              <!--select>
+                                  <option value="java"style="width:10px;height:10px;">Adhar</option>
+                                  <option value="c">Pancard</option>
+                                  <option value="c++">Passport</option>
+                                  <option value="others">Others</option>
+                              </select-->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div style="display: flex;">
+                <div class="details"
+                    style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;width: 28%;padding: 5px;margin-top: 15px;margin-left: 10px;"
+                    id="details">
+                    Opt for Advance :
+                </div>
+                 <!--div style="margin-top: 20px; margin-left: 30px;gap:2px;">
+              <input type="radio" id="html" name="fav_language" value="HTML">
+                  <label for="html"style="margin-left:15px;background:#fff;">Yes</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css"style="margin-left:60px;background:#fff;">No</label>
+                  
+          </div-->
+      </div>
+      <div class="details"
+                                style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;width: 15%; border-radius: 20px 0px;padding: 5px;margin-top: 15px;margin-left: 10px;">
+                                Advance : </div>
+                                <div class="table" style="margin-left:20px;margin-top: 30px;">
+
+                                  <table>
+                                      <tr>
+                                          <th>Expense Name</th>
+                                          <th>Amount</th>
+                                          <th>Case/Credit</th>
+      
+                                      </tr>
+                                      <tr>
+                                          <td>Accomdation</td>
+                                          <td>10,000</td>
+                                          <td>
+                                              cash
+      
+                                          </td>
+      
+                                      </tr>
+                                      <tr>
+                                          <td>Travel</td>
+                                          <td>12500</td>
+                                          <td>
+                                              cash
+                                          </td>
+      
+                                      </tr>
+                                  
+      
+                                  </table>
+      
+      
+      
+      
+      
+      
+      
+                              </div>
+                              <div class="details"
+                                    style="background:rgba(255, 211, 0, 0.54);border-radius: 6px;width: 12%;margin-top: 15px;margin-left: 10px;">
+                                    Comment : 
+                                </div>
+                                <div style="margin-top: -24px; margin-left: 120px;">
+                                  (optional)
+                              </div>
+                              <div class="details" style="box-sizing: border-box;
+
+                                    position: absolute;
+                                    width: 300px;
+                                    height: 35px;
+                                    margin-left: 10px;
+                                    left: 2px;
+
+                                    margin-top: 10px;
+                                    
+                                    background: #FFFFFF;
+                                    border: 1px solid #000000;
+                                    border-radius: 10px;"></div>
+        </div>
+      </div>
+      
+      <div class="status">
+        <h5
+          style="
+            background-color: #8a8a8a;
+            color: #dddddd;
+            width: 80%;
+            height: 35px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 27px;
+            text-align: center;
+            right: 10px;
+            font-size: 25px;
+          "
+        >
+          Status
+        </h5>
+        <h6 class="approved" style="font-weight: bold">APPROVED</h6>
+
+        <div class="l1-manager">
+          <div class="manager">1</div>
+          <h5 style="text-align: center; margin-top: 20px; margin-left: 30px">
+            L1 Manager
+          </h5>
+        </div>
+
+        <br /><br />
+
+        <div class="l2-manager">
+          <div class="manager">2</div>
+          <h5 style="text-align: center; margin-top: 20px; margin-left: 30px">
+            L2 Manager
+          </h5>
+        </div>
+        <br />
+        <br />
+        <div class="aswin">
+          <div class="travel desk">
+            <div class="travelling">Pending</div>
+            <div class="l1-manager">
+              <div
+                class="manager"
+                style="
+                  color: black;
+                  background-color: #ffd300;
+                  height: 50px;
+                  width: 50px;
+                  text-align: center;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size:x-large;
+                  font-weight: bolder;
+                  border: solid 2px #ffd300;
+                "
+              >
+                3
+              </div>
+              <h5
+                style="
+                  text-align: center;
+                  margin-top: 20px;
+                  margin-left: 30px;
+                  color: #fff;
+                "
+              >
+                Travel desk
+              </h5>
+            </div>
+
+            <br /><br />
+
+            <div class="l2-manager">
+              <div
+                class="manager"
+                style="
+                  color: black;
+                  background-color: #ffd300;
+                  height: 50px;
+                  width: 50px;
+                  text-align: center;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size:x-large;
+                  font-weight: bolder;
+                  border: 2px solid #ffd300;
+                "
+              >
+                4
+              </div>
+              <h5
+                style="
+                  text-align: center;
+                  margin-top: 20px;
+                  margin-left: 30px;
+                  color: #fff;
+                "
+              >
+                Fiance Team
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="review" id="review">
+      <h5
+        style="
+          background-color: #ffd300;
+          width: 10%;
+          border-bottom-right-radius: 20px;
+          border-top-left-radius: 20px;
+          padding-inline:70px ;
+          text-align: center;
+          padding-block: 5px;
+        "
+      >
+        Review
+      </h5>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facer
+      </p>
+    </div>
+    <div class="review" id="review">
+      <h5
+        style="
+          background-color: #ffd300;
+          width: 10%;
+          
+          border-bottom-right-radius: 20px;
+          border-top-left-radius: 20px;
+          padding-inline:70px ;
+          text-align: center;
+          padding-block: 5px;
+        "
+      >
+        Accomodation
+      </h5>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facer
+      </p>
+    </div>
+    <div class="review" id="review">
+      <h5
+        style="
+          background-color: #ffd300;
+          width: 10%;
+          border-bottom-right-radius: 20px;
+          border-top-left-radius: 20px;
+          padding-inline:70px ;
+          text-align: center;
+          padding-block: 5px;
+        "
+      >
+        Ticket Details
+      </h5>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facer
+      </p>
+    </div>
+
+    <div class="delete" style="box-sizing: border-box;
+    text-align:center;
+    padding: 10px;
+
+    position: absolute;
+    width: 150.22px;
+    height: 45px;
+    left: 550px;
+    margin-left: 18px;
+    top: 1935px;
+    color:#fff;
+    
+    background: #414141;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;">Delete
+     <!--i class="fa fa-trash" style="margin-left: -100px;width: ;"></i-->
+      
+ 
+    
+</div>
+<div class="edit" style="box-sizing: border-box;
+           text-align:center;
+           padding:10px;
+
+           position: absolute;
+           width: 150.22px;
+           height: 45px;
+           left: 750px;
+           top: 1935px;
+           color:#414141;
+           
+           background: #FFD300;
+           border: 1px solid #FFFFFF;
+           border-radius: 10px">Edit
+           <!--i class="fa fa-pencil" style="margin-left: -100px;"></i-->
+           
+        </div>
+
+    <!-- <div class="review-1">
+      <h5
+        style="
+          background-color: #ffd300;
+          height: 29px;
+          width: 16%;
+          border-bottom-right-radius: 40%;
+        "
+      >
+        Accomdation
+      </h5>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facer
+      </p>
+    </div>
+
+    <div class="review-2">
+      <h5
+        style="
+          background-color: #ffd300;
+          height: 29px;
+          width: 16%;
+          border-bottom-right-radius: 40%;
+        "
+      >
+        Ticket Details
+      </h5>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facer
+      </p>
+    </div> -->
+
+    <script>
+      const btn_menu = document.querySelector(".btn-menu");
+      const side_bar = document.querySelector(".sidebar");
+      const logo = document.querySelector(".logo");
+      const logo2 = document.querySelector(".logo2");
+      main = document.getElementById("Main");
+      inner = document.getElementsByClassName("review");
+      hello = document.getElementsByClassName("hello");
+      status = document.getElementsByClassName("status");
+      var fg = 0;
+      btn_menu.addEventListener("click", function () {
+        side_bar.classList.toggle("expand");
+        console.log("Click");
+        if (fg == 0) {
+          main.style.width = "60%";
+          hello[0].style.left="250px";
+          hello[0].style.width="1000px";
+          for(i = 0; i < inner.length; i++) {
+            inner[i].style.width = '75%';
+            inner[i].style.left = "100px";
+          }
+          fg = 1;
+        } else {
+          main.style.width = "70%";
+          hello[0].style.left="0px";
+          hello[0].style.width="auto";
+          for(i = 0; i < inner.length; i++) {
+            inner[i].style.width = '85%';
+            inner[i].style.left = "30px";
+          }
+          fg = 0;
+        }
+
+        logo2.classList.toggle("hidden");
+        logo.classList.add("logo");
+        logo.classList.toggle("unhide");
+      });
+
+      document.getElementById("bus").addEventListener(
+        "click",
+        () => {
+          document.getElementById("car-bus").hidden = false;
+          document.getElementById("airDetails").hidden = true;
+          document.getElementById("busdetails").hidden = true;
+          document.getElementById("railDetails").hidden = true;
+        },
+        false
+      );
+
+      document.getElementById("car").addEventListener(
+        "click",
+        () => {
+          document.getElementById("car-bus").hidden = true;
+          document.getElementById("airDetails").hidden = true;
+          document.getElementById("railDetails").hidden = true;
+        },
+        false
+      );
+
+      document.getElementById("yes").addEventListener(
+        "click",
+        () => {
+          document.getElementById("busdetails").hidden = false;
+        },
+        false
+      );
+
+      document.getElementById("rail").addEventListener(
+        "click",
+        () => {
+          document.getElementById("railDetails").hidden = false;
+        },
+        false
+      );
+
+      document.getElementById("air").addEventListener(
+        "click",
+        () => {
+          document.getElementById("airDetails").hidden = false;
+          document.getElementById("car-bus").hidden = true;
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
